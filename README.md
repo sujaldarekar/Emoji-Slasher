@@ -43,13 +43,14 @@ Welcome to the Emoji Slasher project. This repository contains two versions of t
  
 You can easily host the web version of the game for free using Render.
  
-1. **GitHub Setup**: Create a new repository and upload the files inside the `web/` folder to the root of that repository.
+1. **GitHub Setup**: I have already initialized the repository and pushed the code to [**sujaldarekar/Emoji-Slasher**](https://github.com/sujaldarekar/Emoji-Slasher).
 2. **Connect to Render**:
    - Sign up at [Render.com](https://render.com/).
    - Create a new **Static Site**.
-   - Select your GitHub repository.
+   - Select the `Emoji-Slasher` repository.
 3. **Configuration**:
    - **Name**: `emoji-slasher`
+   - **Root Directory**: `web` (IMPORTANT: Point this to the `web` folder)
    - **Build Command**: Leave this empty.
    - **Publish Directory**: `.`
 4. **Final Step**: Render will detect the configuration and deploy your site automatically.

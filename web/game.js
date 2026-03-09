@@ -26,7 +26,7 @@ const feverInd = document.getElementById('fever-indicator');
 const freezeInd = document.getElementById('freeze-indicator');
 
 // Game Constants
-const EMOJI_SIZE = 80;
+let emojiSize = 80; // Base size, will be updated dynamically
 const PARTICLE_COUNT = 15;
 const CHARGE_THRESHOLD = 45; // ~1.5 seconds
 
@@ -95,7 +95,7 @@ const hands = new Hands({
 
 hands.setOptions({
     maxNumHands: 2, // Support both hands
-    modelComplexity: 1,
+    modelComplexity: 0,
     minDetectionConfidence: 0.5,
     minTrackingConfidence: 0.5
 });
@@ -131,11 +131,11 @@ function onResults(results) {
 class Emoji {
     constructor(type) {
         this.type = type;
-        this.x = Math.random() * (canvasElement.width - EMOJI_SIZE);
-        this.y = -EMOJI_SIZE;
-        // Reduced speed: Base (2-4) + slower scaling (score/2000)
-        this.speed = (Math.random() * 2 + 2) + (score / 2000);
-        this.size = EMOJI_SIZE;
+        this.x = Math.random() * (canvasElement.width - emojiSize);
+        this.y = -emojiSize;
+        // Increased speed for mobile: Base (3.5-5.5) + faster scaling (score/1500)
+        this.speed = (Math.random() * 2 + 3.5) + (score / 1500);
+        this.size = emojiSize;
         this.rotation = 0;
         this.rotSpeed = (Math.random() - 0.5) * 0.1;
 
@@ -255,6 +255,8 @@ function gameLoop() {
     if (canvasElement.width !== window.innerWidth || canvasElement.height !== window.innerHeight) {
         canvasElement.width = window.innerWidth;
         canvasElement.height = window.innerHeight;
+        // Dynamic emoji size: 18% of screen width, clamped between 50 and 120
+        emojiSize = Math.max(50, Math.min(120, canvasElement.width * 0.18));
     }
 
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
