@@ -1,0 +1,6 @@
+services:
+  - type: static
+    name: emoji-slasher
+    env: static
+    buildCommand: ""
+    publishPath: "."

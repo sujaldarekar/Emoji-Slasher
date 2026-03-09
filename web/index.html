@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Emoji Slasher - Premium Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- MediaPipe Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="game-container">
+        <video id="input-video" playsinline hidden></video>
+        <canvas id="output-canvas"></canvas>
+
+        <!-- UI Overlays -->
+        <div id="hud">
+            <div id="score-container">
+                <span class="label">SCORE</span>
+                <span id="score">0</span>
+            </div>
+            <div id="combo-container" class="hidden">
+                <span class="label">COMBO</span>
+                <span id="combo">x0</span>
+            </div>
+        </div>
+
+        <div id="status-indicators">
+            <div id="shield-indicator" class="status-item hidden">🛡️ SHIELD ACTIVE</div>
+            <div id="fever-indicator" class="status-item hidden">🔥 FEVER MODE!</div>
+            <div id="freeze-indicator" class="status-item hidden">❄️ FREEZE!</div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="overlay">
+            <h1>EMOJI SLASHER</h1>
+            <p>Premium Edition</p>
+            <div id="start-button-container">
+                <button id="start-button">START GAME</button>
+                <div class="progress-bar-bg">
+                    <div id="start-progress" class="progress-bar"></div>
+                </div>
+            </div>
+            <p class="hint">Tap or Hold Hand over button to start</p>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="overlay hidden">
+            <h1 class="game-over-text">GAME OVER</h1>
+            <p id="game-over-reason"></p>
+            <div class="stats">
+                <p>Final Score: <span id="final-score">0</span></p>
+                <p>High Score: <span id="high-score">0</span></p>
+            </div>
+            <div id="restart-button-container">
+                <button id="restart-button">RESTART</button>
+                <div class="progress-bar-bg">
+                    <div id="restart-progress" class="progress-bar-yellow"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="loading-screen" class="overlay">
+            <div class="loader"></div>
+            <p>Loading AI Models...</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
