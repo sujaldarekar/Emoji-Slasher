@@ -133,8 +133,8 @@ class Emoji {
         this.type = type;
         this.x = Math.random() * (canvasElement.width - emojiSize);
         this.y = -emojiSize;
-        // Increased speed for mobile: Base (3.5-5.5) + faster scaling (score/1500)
-        this.speed = (Math.random() * 2 + 3.5) + (score / 1500);
+        // Further increased speed: Base (6.5-8.5) + faster scaling (score/1500)
+        this.speed = (Math.random() * 2 + 6.5) + (score / 1500);
         this.size = emojiSize;
         this.rotation = 0;
         this.rotSpeed = (Math.random() - 0.5) * 0.1;
