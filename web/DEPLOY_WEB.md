@@ -30,9 +30,11 @@ To play on your phone, you need to "host" it so your phone can see it:
 - **Permission**: The browser will ask for Camera access—click **Allow**.
 - **Interaction**: Most browsers require you to **Tap the screen once** to enable sound.
 - **Slashing**: Use your hand in front of the front-facing camera to slash emojis!
+- **Spells**: Fill spell charge and draw gestures in air: `O` = Shield, `Z` = Freeze, `X` = Rage Cut.
 
 ## ✨ Features
 - **MediaPipe Tracking**: Uses AI to detect your hand movements even on high-end phones.
+- **Gesture Spells**: Cast powers by drawing hand gestures once spell meter is full.
 - **Glassmorphism UI**: High-tech transparent HUD.
 - **Smooth Particles**: Optimized for mobile performance.
 
